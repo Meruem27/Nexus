@@ -4,7 +4,7 @@
     <div class="nexus-card-meta">
       {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2006.01.02" }}</time>{{ end -}}
       {{- with $.Section }}<span>{{ . | humanize }}</span>{{ end -}}
-      {{- with .ReadingTime }}<span>{{ . }} 分钟阅读</span>{{ end -}}
+      {{- with .ReadingTime }}<span>{{ . }} min read</span>{{ end -}}
     </div>
     <h2><a href="{{ .RelPermalink }}">{{ $title }}</a></h2>
     {{- with .Summary }}<p>{{ . | plainify | htmlUnescape }}</p>{{ end -}}
@@ -15,6 +15,6 @@
       <a href="{{ .RelPermalink }}"># {{ .LinkTitle }}</a>
       {{- end }}
     </div>
-    <a class="nexus-card-arrow" href="{{ .RelPermalink }}" aria-label="阅读 {{ $title }}">阅读 →</a>
+    <a class="nexus-card-arrow" href="{{ .RelPermalink }}" aria-label="Read {{ $title }}">Read →</a>
   </footer>
 </article>

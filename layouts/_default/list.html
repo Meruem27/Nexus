@@ -2,7 +2,7 @@
 <header class="nexus-list-header">
   {{ partial "breadcrumbs.html" . }}
   <p class="nexus-eyebrow">COLLECTION</p>
-  <h1>{{ .Title | default "笔记" }}</h1>
+  <h1>{{ .Title | default "Notes" }}</h1>
   {{ with .Description }}<p>{{ . }}</p>{{ end }}
   {{ with .Content }}<div class="nexus-list-content md-content">{{ . }}</div>{{ end }}
 </header>
@@ -13,16 +13,15 @@
   {{- range $paginator.Pages }}
     {{ partial "nexus/note-card.html" . }}
   {{- else }}
-    <p class="nexus-empty">这个分类暂时还没有笔记。</p>
+    <p class="nexus-empty">There are no notes in this collection yet.</p>
   {{- end }}
 </section>
 
 {{- if gt $paginator.TotalPages 1 }}
-<nav class="nexus-pagination" aria-label="分页">
-  {{ with $paginator.Prev }}<a href="{{ .URL }}">← 更新的笔记</a>{{ end }}
+<nav class="nexus-pagination" aria-label="Pagination">
+  {{ with $paginator.Prev }}<a href="{{ .URL }}">← Newer Notes</a>{{ end }}
   <span>{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
-  {{ with $paginator.Next }}<a href="{{ .URL }}">更早的笔记 →</a>{{ end }}
+  {{ with $paginator.Next }}<a href="{{ .URL }}">Older Notes →</a>{{ end }}
 </nav>
 {{- end }}
 {{- end }}
-

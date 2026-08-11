@@ -1,9 +1,9 @@
-﻿/* Nexus: an editorial knowledge-base layout with quiet, high-contrast reading surfaces. */
+/* Nexus: an editorial knowledge-base layout with quiet, high-contrast reading surfaces. */
 :root {
   --gap: 28px;
   --content-gap: 24px;
-  --nav-width: 1160px;
-  --main-width: 1160px;
+  --nav-width: 1320px;
+  --main-width: 1320px;
   --header-height: 68px;
   --radius: 14px;
   --theme: #f8fafc;
@@ -41,7 +41,7 @@ body,
 }
 
 body {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Times New Roman", "SimSun", "宋体", serif;
 }
 
 .header {
@@ -72,12 +72,12 @@ body {
 .main {
   max-width: var(--main-width);
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
-  padding: 48px 24px 72px;
+  padding: 32px 12px 64px;
 }
 
 .nexus-hero {
-  max-width: 780px;
-  padding: 44px 0 30px;
+  max-width: none;
+  padding: 36px 0 28px;
 }
 
 .nexus-eyebrow {
@@ -99,8 +99,8 @@ body {
 }
 
 .nexus-hero-copy {
-  max-width: 650px;
-  margin: 24px 0 0;
+  max-width: none;
+  margin: 20px 0 0;
   color: var(--secondary);
   font-size: 1.1rem;
   line-height: 1.9;
@@ -194,8 +194,8 @@ body {
 
 .nexus-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .nexus-card {
@@ -280,8 +280,8 @@ body {
 }
 
 .nexus-list-header {
-  max-width: 760px;
-  margin-bottom: 38px;
+  max-width: none;
+  margin-bottom: 34px;
 }
 
 .nexus-list-header .breadcrumbs { margin-bottom: 26px; }
@@ -308,7 +308,7 @@ body {
 .nexus-pagination a { color: var(--accent); text-decoration: none; font-weight: 700; }
 
 .nexus-single {
-  max-width: 880px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 42px clamp(24px, 5vw, 64px);
   border: 1px solid var(--border);
@@ -326,6 +326,7 @@ body {
 .nexus-single .post-description { color: var(--secondary); font-size: 1.05rem; }
 
 .post-content {
+  font-family: "Times New Roman", "SimSun", "宋体", serif;
   color: var(--content);
   font-size: 1rem;
   line-height: 1.9;
@@ -351,6 +352,12 @@ body {
 
 .post-content pre code { border: 0; }
 
+code,
+pre,
+.post-content pre code {
+  font-family: Consolas, "Courier New", monospace;
+}
+
 .toc {
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -369,7 +376,7 @@ body {
 
 .mermaid-diagram svg { max-width: 100%; height: auto; }
 
-.nexus-archive-group { max-width: 900px; margin: 0 auto 42px; }
+.nexus-archive-group { max-width: 1120px; margin: 0 auto 42px; }
 
 .nexus-archive-group h2 {
   margin: 0 0 12px;
@@ -411,6 +418,10 @@ body {
 
 .post-entry:hover,
 .post-entry:focus-within { transform: none; }
+
+@media (max-width: 980px) {
+  .nexus-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
 @media (max-width: 720px) {
   .main { padding: 32px 16px 52px; }

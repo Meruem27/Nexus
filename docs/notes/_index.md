@@ -1,4 +1,4 @@
 ﻿---
-title: "笔记"
-description: "Nexus 中的全部笔记"
+title: "Notes"
+description: "All notes in Nexus"
 ---

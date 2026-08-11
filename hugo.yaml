@@ -1,6 +1,6 @@
 ﻿baseURL: "/"
-languageCode: "zh-cn"
-defaultContentLanguage: "zh-cn"
+languageCode: "en-us"
+defaultContentLanguage: "en"
 title: "Nexus"
 theme: "PaperMod"
 contentDir: "docs"
@@ -27,25 +27,25 @@ taxonomies:
 menu:
   main:
     - identifier: notes
-      name: 笔记
+      name: Notes
       url: /notes/
       weight: 10
     - identifier: archives
-      name: 归档
+      name: Archives
       url: /archives/
       weight: 20
     - identifier: tags
-      name: 标签
+      name: Tags
       url: /tags/
       weight: 30
     - identifier: search
-      name: 搜索
+      name: Search
       url: /search/
       weight: 40
 
 params:
   env: production
-  description: "Nexus · 一个轻量、清晰、可持续积累的个人知识空间。"
+  description: "Nexus · A lightweight and focused personal knowledge base."
   author: "Nexus"
   defaultTheme: auto
   disableThemeToggle: false
@@ -63,10 +63,7 @@ params:
   TocOpen: false
   homeInfoParams:
     Title: "Nexus"
-    Content: |
-      欢迎来到我的个人知识空间。
-
-      这里记录读书、技术、思考与日常积累。只要把 Markdown 文件放进 `docs/` 并推送到 GitHub，Nexus 就会自动生成新页面。
+    Content: "A quiet, Markdown-powered space for notes, ideas, and learning."
   assets:
     disableHLJS: true
     disableFingerprinting: false
@@ -87,7 +84,7 @@ params:
   socialIcons: []
   footer:
     hideCopyright: false
-    text: "保持好奇，持续记录。"
+    text: "Keep learning. Keep writing."
 
 markup:
   goldmark:

@@ -4,34 +4,32 @@
 {{- $pages = where $pages "Layout" "ne" "search" -}}
 
 <section class="nexus-hero">
-  <p class="nexus-eyebrow">PERSONAL KNOWLEDGE BASE</p>
   <h1>Nexus</h1>
-  <p class="nexus-hero-copy">记录技术、阅读与思考的个人知识空间。所有内容由 Markdown 驱动，保持清晰、安静，并可持续积累。</p>
   <div class="nexus-hero-actions">
-    <a class="nexus-button nexus-button-primary" href="{{ "notes/" | relLangURL }}">浏览笔记</a>
-    <a class="nexus-button" href="{{ "about/" | relLangURL }}">关于 Nexus</a>
+    <a class="nexus-button nexus-button-primary" href="{{ "notes/" | relLangURL }}">Browse Notes</a>
+    <a class="nexus-button" href="{{ "about/" | relLangURL }}">About Nexus</a>
   </div>
 </section>
 
-<section class="nexus-overview" aria-label="Nexus 统计">
-  <div><strong>{{ len $pages }}</strong><span>篇笔记</span></div>
-  <div><strong>{{ len site.Taxonomies.tags }}</strong><span>个标签</span></div>
-  <div><strong>Markdown</strong><span>直接发布</span></div>
+<section class="nexus-overview" aria-label="Nexus overview">
+  <div><strong>{{ len $pages }}</strong><span>Notes</span></div>
+  <div><strong>{{ len site.Taxonomies.tags }}</strong><span>Tags</span></div>
+  <div><strong>Markdown</strong><span>Direct Publishing</span></div>
 </section>
 
 <section class="nexus-section-head">
   <div>
     <p class="nexus-eyebrow">LATEST NOTES</p>
-    <h2>最近更新</h2>
+    <h2>Recent Notes</h2>
   </div>
-  <a href="{{ "notes/" | relLangURL }}">查看全部 →</a>
+  <a href="{{ "notes/" | relLangURL }}">View All →</a>
 </section>
 
 <section class="nexus-grid">
   {{- range first 12 ($pages.ByDate.Reverse) }}
     {{ partial "nexus/note-card.html" . }}
   {{- else }}
-    <p class="nexus-empty">把第一个 Markdown 文件放进 <code>docs/</code>，它就会出现在这里。</p>
+    <p class="nexus-empty">Add your first Markdown file to <code>docs/</code> and it will appear here.</p>
   {{- end }}
 </section>
 {{- end }}

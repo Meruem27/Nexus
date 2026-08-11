@@ -1,55 +1,55 @@
 ﻿---
-title: "开始使用 Nexus"
+title: "Getting Started with Nexus"
 date: 2026-08-11T09:00:00+08:00
 draft: false
-description: "Nexus 的 Markdown 写作与发布说明"
+description: "A quick guide to writing and publishing with Markdown"
 tags:
   - Nexus
   - Markdown
   - Hugo
 categories:
-  - 指南
+  - Guide
 ---
 
-Nexus 是一个以 Markdown 为源文件、以 GitHub 为发布入口的个人知识空间。
+Nexus uses Markdown as its source format and GitHub as its publishing entry point.
 
-## 写一篇新笔记
+## Write a new note
 
-在 `docs/` 下新建 Markdown 文件，写入 front matter：
+Create a Markdown file under `docs/` and add front matter:
 
 ```markdown
 ---
-title: "我的第一篇笔记"
+title: "My first note"
 date: 2026-08-11
-tags: [读书, 思考]
-categories: [随笔]
+tags: [Reading, Ideas]
+categories: [Personal]
 ---
 
-正文从这里开始。
+Your note starts here.
 ```
 
-保存并推送到 `main` 分支，GitHub Actions 会自动构建并发布网站。
+Commit and push it to the `main` branch. GitHub Actions will build and publish the site automatically.
 
-## Mermaid 图表
+## Mermaid diagrams
 
-使用 `mermaid` 代码块即可渲染流程图：
+Use a `mermaid` code block to render a diagram:
 
 ```mermaid
 flowchart LR
-  A[写 Markdown] --> B[推送到 GitHub]
-  B --> C[GitHub Actions 构建]
-  C --> D[Nexus 页面]
+  A[Write Markdown] --> B[Push to GitHub]
+  B --> C[GitHub Actions builds]
+  C --> D[Nexus page]
 ```
 
-## 代码块
+## Code blocks
 
-普通代码块会自动获得语法高亮与复制按钮：
+Regular code blocks receive syntax highlighting and a copy button:
 
 ```python
 from pathlib import Path
 
 notes = list(Path("docs").glob("**/*.md"))
-print(f"发现 {len(notes)} 篇笔记")
+print(f"Found {len(notes)} notes")
 ```
 
-> 建议一篇笔记只表达一个主题，并给它添加 1～3 个标签，之后会更容易检索。
+> Keep one topic per note and add one to three tags to make future searches easier.
