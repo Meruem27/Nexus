@@ -1,0 +1,20 @@
+﻿{{- $title := .Title | default (.File.ContentBaseName | humanize) -}}
+<article class="nexus-card">
+  <div class="nexus-card-body">
+    <div class="nexus-card-meta">
+      {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2006.01.02" }}</time>{{ end -}}
+      {{- with $.Section }}<span>{{ . | humanize }}</span>{{ end -}}
+      {{- with .ReadingTime }}<span>{{ . }} 分钟阅读</span>{{ end -}}
+    </div>
+    <h2><a href="{{ .RelPermalink }}">{{ $title }}</a></h2>
+    {{- with .Summary }}<p>{{ . | plainify | htmlUnescape }}</p>{{ end -}}
+  </div>
+  <footer class="nexus-card-footer">
+    <div class="nexus-tags">
+      {{- range first 3 (.GetTerms "tags") }}
+      <a href="{{ .RelPermalink }}"># {{ .LinkTitle }}</a>
+      {{- end }}
+    </div>
+    <a class="nexus-card-arrow" href="{{ .RelPermalink }}" aria-label="阅读 {{ $title }}">阅读 →</a>
+  </footer>
+</article>

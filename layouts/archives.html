@@ -1,0 +1,26 @@
+﻿{{- define "main" }}
+{{- $pages := where site.RegularPages "Params.hiddenInHomeList" "ne" true -}}
+{{- $pages = where $pages "Layout" "ne" "archives" -}}
+{{- $pages = where $pages "Layout" "ne" "search" -}}
+<header class="nexus-list-header">
+  <p class="nexus-eyebrow">TIMELINE</p>
+  <h1>{{ .Title }}</h1>
+  <p>按时间整理的全部笔记。</p>
+</header>
+
+{{- range $pages.GroupByDate "2006" }}
+<section class="nexus-archive-group">
+  <h2>{{ if eq .Key "0001" }}未标注日期{{ else }}{{ .Key }}{{ end }}</h2>
+  <div class="nexus-archive-list">
+  {{- range .Pages.ByDate.Reverse }}
+    {{- $title := .Title | default (.File.ContentBaseName | humanize) -}}
+    <a class="nexus-archive-item" href="{{ .RelPermalink }}">
+      <time>{{ with .Date }}{{ .Format "01.02" }}{{ else }}—{{ end }}</time>
+      <span>{{ $title }}</span>
+      <small>{{ .ReadingTime }} 分钟</small>
+    </a>
+  {{- end }}
+  </div>
+</section>
+{{- end }}
+{{- end }}
