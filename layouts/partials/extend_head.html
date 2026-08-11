@@ -1,0 +1,35 @@
+﻿{{- /* Nexus custom head: favicon and lightweight Mermaid support. */ -}}
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+  async function renderMermaid() {
+    const blocks = document.querySelectorAll("pre > code.language-mermaid");
+    const diagrams = document.querySelectorAll(".mermaid-diagram");
+    if (!blocks.length && !diagrams.length) return;
+
+    const isDark = document.documentElement.dataset.theme === "dark";
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: isDark ? "dark" : "neutral",
+      fontFamily: "inherit"
+    });
+
+    blocks.forEach((block, index) => {
+      const container = document.createElement("div");
+      container.className = "mermaid-diagram";
+      container.id = `mermaid-${index}`;
+      container.textContent = block.textContent;
+      block.parentElement.replaceWith(container);
+    });
+
+    await mermaid.run({ querySelector: ".mermaid-diagram" });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid, { once: true });
+  } else {
+    renderMermaid();
+  }
+</script>

@@ -1,0 +1,6 @@
+﻿{{- /* Re-render Mermaid after PaperMod's theme toggle so diagrams match the palette. */ -}}
+<script>
+  document.getElementById("theme-toggle")?.addEventListener("click", () => {
+    window.setTimeout(() => window.location.reload(), 0);
+  });
+</script>

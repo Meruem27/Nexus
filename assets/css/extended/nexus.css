@@ -1,0 +1,115 @@
+﻿/* Nexus: quiet, paper-like surfaces inspired by knowledge-base layouts. */
+:root {
+  --theme: #f4f5f7;
+  --entry: #ffffff;
+  --primary: #1f2937;
+  --secondary: #667085;
+  --tertiary: #d0d5dd;
+  --content: #344054;
+  --border: #e4e7ec;
+  --code-bg: #eef1f4;
+  --accent: #355c7d;
+  --accent-soft: #e8eef3;
+}
+
+:root[data-theme="dark"] {
+  --theme: #16181d;
+  --entry: #20242b;
+  --primary: #f2f4f7;
+  --secondary: #98a2b3;
+  --tertiary: #3b424d;
+  --content: #d0d5dd;
+  --border: #303741;
+  --code-bg: #1c2026;
+  --accent: #a7c4d9;
+  --accent-soft: #293641;
+}
+
+body {
+  background: var(--theme);
+}
+
+.list {
+  background: var(--theme);
+}
+
+.main {
+  max-width: 760px;
+}
+
+.header {
+  background: var(--theme);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo a {
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+
+.post-entry,
+.first-entry,
+.toc,
+.post-single {
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.post-entry {
+  border-radius: 12px;
+  transition: none;
+}
+
+.post-entry:hover,
+.post-entry:focus-within {
+  transform: none;
+  border-color: var(--tertiary);
+}
+
+.first-entry {
+  min-height: auto;
+  padding: 28px;
+  border-radius: 12px;
+  background: var(--entry);
+}
+
+.home-info .entry-content code,
+.post-content code {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+}
+
+.post-content blockquote {
+  border-inline-start: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+}
+
+.post-content a,
+.entry-content a {
+  color: var(--accent);
+}
+
+.mermaid-diagram {
+  overflow-x: auto;
+  margin: 20px 0;
+  padding: 20px;
+  text-align: center;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+

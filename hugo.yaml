@@ -1,0 +1,108 @@
+﻿baseURL: "/"
+languageCode: "zh-cn"
+defaultContentLanguage: "zh-cn"
+title: "Nexus"
+theme: "PaperMod"
+contentDir: "docs"
+publishDir: "public"
+enableRobotsTXT: true
+enableEmoji: true
+hasCJKLanguage: true
+
+defaultContentLanguageInSubdir: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+pagination:
+  pagerSize: 8
+
+taxonomies:
+  category: categories
+  tag: tags
+
+menu:
+  main:
+    - identifier: notes
+      name: 笔记
+      url: /notes/
+      weight: 10
+    - identifier: archives
+      name: 归档
+      url: /archives/
+      weight: 20
+    - identifier: tags
+      name: 标签
+      url: /tags/
+      weight: 30
+    - identifier: search
+      name: 搜索
+      url: /search/
+      weight: 40
+
+params:
+  env: production
+  description: "Nexus · 一个轻量、清晰、可持续积累的个人知识空间。"
+  author: "Nexus"
+  defaultTheme: auto
+  disableThemeToggle: false
+  disableScrollToTop: false
+  mainSections:
+    - page
+    - notes
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowToc: true
+  TocOpen: false
+  homeInfoParams:
+    Title: "Nexus"
+    Content: |
+      欢迎来到我的个人知识空间。
+
+      这里记录读书、技术、思考与日常积累。只要把 Markdown 文件放进 `docs/` 并推送到 GitHub，Nexus 就会自动生成新页面。
+  assets:
+    disableHLJS: true
+    disableFingerprinting: false
+  cover:
+    linkFullImages: true
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 2
+    keys:
+      - title
+      - permalink
+      - summary
+      - content
+  socialIcons: []
+  footer:
+    hideCopyright: false
+    text: "保持好奇，持续记录。"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    style: github
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
+
+minify:
+  minifyOutput: true
