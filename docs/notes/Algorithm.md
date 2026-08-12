@@ -1,10 +1,10 @@
-```
+---
 title: "Algorithm"
 date: 2026-08-12
 tags:
   - Data Structure
   - Algorithm
-```
+---
 
 # 1 Basics of C++
 
