@@ -41,7 +41,7 @@ body,
 }
 
 body {
-  font-family: "Times New Roman", "SimSun", "宋体", serif;
+  font-family: "Times New Roman", SimSun, serif;
 }
 
 .header {
@@ -219,7 +219,7 @@ body {
 }
 
 .nexus-card-meta span::before {
-  content: "•";
+  content: "\2022";
   margin-right: 8px;
   color: var(--tertiary);
 }
@@ -326,7 +326,7 @@ body {
 .nexus-single .post-description { color: var(--secondary); font-size: 1.05rem; }
 
 .post-content {
-  font-family: "Times New Roman", "SimSun", "宋体", serif;
+  font-family: "Times New Roman", SimSun, serif;
   color: var(--content);
   font-size: 1rem;
   line-height: 1.9;
@@ -439,5 +439,229 @@ pre,
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+/* Responsive guardrails: keep every page inside the visible viewport. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.header,
+.footer,
+.main,
+.nexus-hero,
+.nexus-overview,
+.nexus-grid,
+.nexus-single,
+.nexus-archive-group,
+.nexus-list-header,
+.nexus-card,
+.nexus-card-body,
+.nexus-card-footer,
+.nexus-section-head,
+.nexus-archive-item {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.header-nav {
+  width: 100%;
+  min-width: 0;
+}
+
+.menu {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.nexus-grid > *,
+.nexus-overview > *,
+.nexus-section-head > *,
+.nexus-archive-item > * {
+  min-width: 0;
+}
+
+.nexus-card h2,
+.nexus-card h2 a,
+.nexus-archive-item span,
+.nexus-single .post-title,
+.post-content,
+.post-content :is(h1, h2, h3, h4, h5, h6, p, li, a) {
+  overflow-wrap: anywhere;
+}
+
+.post-content :is(pre, .highlight, table, iframe, video, svg),
+.mermaid-diagram,
+.searchbox,
+.searchResults {
+  max-width: 100%;
+}
+
+.post-content pre,
+.post-content .highlight,
+.post-content table,
+.mermaid-diagram {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.post-content table {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --nav-width: 100%;
+    --main-width: 100%;
+  }
+
+  .main {
+    padding: 28px 20px 56px;
+  }
+
+  .nexus-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nexus-single,
+  .nexus-archive-group {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gap: 12px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .header-nav {
+    min-height: 58px;
+    padding-inline: 12px;
+    column-gap: 8px;
+    line-height: 58px;
+  }
+
+  .logo a {
+    font-size: 1.15rem;
+  }
+
+  #menu {
+    column-gap: 14px;
+  }
+
+  #menu a {
+    font-size: 0.84rem;
+  }
+
+  .main {
+    padding: 24px 12px 48px;
+  }
+
+  .nexus-hero {
+    padding: 24px 0;
+  }
+
+  .nexus-hero h1,
+  .nexus-list-header h1 {
+    font-size: clamp(2.4rem, 15vw, 3.5rem);
+    letter-spacing: -0.055em;
+  }
+
+  .nexus-hero-actions,
+  .nexus-section-head,
+  .nexus-pagination {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .nexus-button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nexus-overview {
+    grid-template-columns: 1fr;
+    margin: 16px 0 44px;
+  }
+
+  .nexus-overview div {
+    min-height: 82px;
+    padding: 18px;
+  }
+
+  .nexus-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .nexus-card {
+    min-height: 0;
+  }
+
+  .nexus-card-body {
+    padding: 18px 18px 14px;
+  }
+
+  .nexus-card-footer {
+    min-height: 50px;
+    padding: 0 18px;
+  }
+
+  .nexus-single {
+    padding: 24px 16px;
+    border-radius: 10px;
+  }
+
+  .post-content {
+    font-size: 0.98rem;
+  }
+
+  .post-content pre,
+  .post-content .highlight,
+  .mermaid-diagram {
+    margin-inline: 0;
+  }
+
+  .mermaid-diagram {
+    padding: 14px;
+  }
+
+  .nexus-archive-item {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .nexus-archive-item small {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-nav {
+    padding-inline: 10px;
+  }
+
+  .logo a {
+    font-size: 1.05rem;
+  }
+
+  #menu {
+    column-gap: 12px;
+  }
+
+  .main {
+    padding-inline: 10px;
+  }
+
+  .nexus-card-footer {
+    padding-inline: 14px;
   }
 }
